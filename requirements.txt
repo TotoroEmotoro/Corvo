@@ -1,0 +1,7 @@
+// Part of Corvo - a lightweight interpreted programming language using Lark
+// Copyright (C) 2025  Austin (GitHub: TotoroEmotoro)
+// Licensed under the GNU LGPL v3 or later.
+// See the LICENSE file or <https://www.gnu.org/licenses/> for details.
+
+
+lark
