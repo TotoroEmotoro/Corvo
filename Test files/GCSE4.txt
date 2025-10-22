@@ -1,0 +1,5 @@
+# Program to validate minutes played (0-300 inclusive)
+
+ask "Enter minutes played: " remember as mins
+
+if mins is less than 0 or mins is greater than 300 then display "Invalid input"

@@ -1,0 +1,15 @@
+# Program to access 2D array data from CSV
+# Based on the exam table:
+# Students: Stuart(col 0->1), Wes(col 1->2), Victoria(col 2->3), Dan(col 3->4)
+# Days: Mon(row 0->1), Tue(row 1->2), Wed(row 2->3), Thu(row 3->4), Fri(row 4->5)
+
+# Load the CSV data
+read csv "gaming_data.csv" remember as minsPlayed
+
+# Get Dan's column (column 4) and then access Wednesday (row 3)
+the dans_column is get column 4 from minsPlayed
+display "Dan played on Wednesday: " plus dans_column at 3
+
+# Get Stuart's column (column 1) and then access Friday (row 5)  
+the stuarts_column is get column 1 from minsPlayed
+display "Stuart played on Friday: " plus stuarts_column at 5

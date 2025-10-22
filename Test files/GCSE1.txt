@@ -1,0 +1,16 @@
+# Program to find the largest of two numbers
+
+ask "Enter the first number: " remember as first_number
+ask "Enter the second number: " remember as second_number
+
+# Version 1: Single line if-else
+if first_number is greater than second_number then display "The largest number is: " plus first_number otherwise display "The largest number is: " plus second_number
+
+# Version 2: Using blocks for clearer structure
+if first_number is greater than second_number then : [
+    display "The first number is larger!"
+    display "The largest number is: " plus first_number
+] otherwise : [
+    display "The second number is larger (or they are equal)!"
+    display "The largest number is: " plus second_number
+]

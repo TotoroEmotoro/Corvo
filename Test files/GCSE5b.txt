@@ -1,0 +1,21 @@
+# Basic version - direct translation of the original algorithm
+# Student 2 = Victoria (column 2->3 in FriendlyLang)
+
+# Load the CSV data
+read csv "gaming_data.csv" remember as minsPlayed
+
+# Get Victoria's column (student 2 = column 3)
+the victorias_column is get column 3 from minsPlayed
+
+# Initialize total
+the total is 0
+
+# Add each day manually (Monday to Friday = rows 1 to 5)
+the total is total plus victorias_column at 1
+the total is total plus victorias_column at 2  
+the total is total plus victorias_column at 3
+the total is total plus victorias_column at 4
+the total is total plus victorias_column at 5
+
+# Display the result
+display "Total minutes Victoria played: " plus total

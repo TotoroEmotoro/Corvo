@@ -1,0 +1,4 @@
+ask "Enter length: " remember as length
+ask "Enter width: " remember as width
+the area is length plus width
+display "Area is: " plus area

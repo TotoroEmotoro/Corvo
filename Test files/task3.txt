@@ -1,0 +1,5 @@
+the count is 1
+repeat 100 loops : [
+    display "Hello number " plus count
+    the count is count plus count
+]

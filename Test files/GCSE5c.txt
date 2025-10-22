@@ -1,0 +1,19 @@
+# Refined version - using a loop for efficiency
+# Student 2 = Victoria (column 2->3 in FriendlyLang)
+
+# Load the CSV data
+read csv "gaming_data.csv" remember as minsPlayed
+
+# Get Victoria's column (student 2 = column 3)
+the victorias_column is get column 3 from minsPlayed
+
+# Initialize total
+the total is 0
+
+# Use a loop to add up all values in Victoria's column
+for each day_minutes in victorias_column : [
+    the total is total plus day_minutes
+]
+
+# Display the result
+display "Total minutes Victoria played: " plus total

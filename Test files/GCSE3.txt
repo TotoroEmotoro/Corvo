@@ -1,0 +1,17 @@
+# Program to calculate the area of a circle with radius validation
+
+# Initialize variables
+the radius is 0
+the area is 0.0
+
+# Get radius from user
+ask "Enter radius: " remember as radius
+
+# Validate radius and calculate - using the block syntax that IS supported
+if radius is less than 1 or radius is greater than 30 then : [
+    display "Sorry, that radius is invalid"
+] otherwise : [
+    the radius_squared is radius times radius
+    the area is 3.142 times radius_squared
+    display area
+]

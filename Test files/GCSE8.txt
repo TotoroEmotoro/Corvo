@@ -1,0 +1,11 @@
+# Program to check gaming time and give appropriate message
+# Based on the flowchart
+
+# START
+# Input: Enter number of minutes played
+ask "Enter number of minutes played: " remember as minutes
+
+# Decision: Minutes > 120?
+if minutes is greater than 120 then display "You played games for too long!" otherwise display "You are under your time limit!"
+
+# END

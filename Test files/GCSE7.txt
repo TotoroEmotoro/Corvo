@@ -1,0 +1,18 @@
+# Program to convert hours and minutes into total minutes
+# Using FriendlyLang sections (functions without parameters)
+
+# Main program
+ask "Please enter number of hours played: " remember as hours
+ask "Please enter number of minutes played: " remember as minutes
+
+# Call the conversion section
+convertToMinutes
+
+# Display the result
+display "Total minutes: " plus finalTotal
+
+# Section (function) to perform the calculation
+section convertToMinutes is [
+    the hours_in_minutes is hours times 60
+    the finalTotal is hours_in_minutes plus minutes
+]

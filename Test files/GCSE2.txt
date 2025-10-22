@@ -1,0 +1,14 @@
+# Program to double numbers until user enters a negative number
+
+# Initialize with a positive number to start the loop
+the number is 1
+
+while number is greater than 0 do : [
+    ask "Enter a number (enter 0 or negative to stop): " remember as number
+    if number is greater than 0 then : [
+        the doubled is number times 2
+        display "Double of " plus number plus " is " plus doubled
+    ]
+]
+
+display "Program ended - zero or negative number entered."

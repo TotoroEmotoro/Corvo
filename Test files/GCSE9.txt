@@ -1,0 +1,18 @@
+# Fully corrected algorithm to total ALL numbers in the array
+# Fixed for FriendlyLang's 1-indexed arrays
+
+# Create a sample scores array for testing
+the scores is ["10", "20", "30", "40", "50"]
+
+# Initialize total
+the total is 0
+
+# Alternative: Use for-each loop which is safer
+the total is 0
+
+for each score in scores : [
+    the total is total plus score
+]
+
+# Display result
+display "Total: " plus total

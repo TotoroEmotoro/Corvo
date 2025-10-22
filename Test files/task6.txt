@@ -1,0 +1,7 @@
+ask "enter your name: " remember as name
+ask "how many?" remember as number
+
+repeat number loops : [
+display "Hello " plus name
+display "banana "
+]

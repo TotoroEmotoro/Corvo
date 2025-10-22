@@ -1,0 +1,2 @@
+ask "Enter your age: " remember as age
+if age is greater than 18 then display "You can vote!" otherwise display "Too young to vote"

@@ -1,0 +1,14 @@
+# Condition-controlled loop program
+
+# Initialize variables
+the x is 15
+the y is 0
+
+# While loop that continues as long as x > 0
+while x is greater than 0 do : [
+    the y is y plus 1
+    the x is x minus y
+]
+
+# Display the final result
+display y

@@ -1,0 +1,178 @@
+# FriendlyLang Comprehensive Test - All Features Including CSV
+# This tests every feature of the language
+
+display "=== FriendlyLang Comprehensive Test ==="
+
+# Variables and basic math
+the x is 7
+the y is 3
+display "Basic variables: x=" plus x plus ", y=" plus y
+
+# Calculate results first, then display
+the sum is x plus y
+the diff is x minus y
+the product is x times y
+the quotient is x divided by y
+
+display "Math: " plus x plus " + " plus y plus " = " plus sum
+display "Math: " plus x plus " - " plus y plus " = " plus diff
+display "Math: " plus x plus " * " plus y plus " = " plus product
+display "Math: " plus x plus " / " plus y plus " = " plus quotient
+
+# String operations
+the name is "Alice"
+the greeting is "Hello, " plus name plus "!"
+display greeting
+display "Length of name: " plus length of name
+
+# Single-line conditionals
+if x is greater than 5 then display "x is big (single line)"
+if x is greater than 10 then display "This won't show" otherwise display "x is not > 10"
+
+# Block conditionals
+if x is greater than 5 then: [
+    display "x is big (block)"
+    display "Multiple statements work"
+]
+
+if x is equal to 42 then: [
+    display "The answer!"
+] otherwise: [
+    display "Not the answer to life"
+]
+
+# Loops - repeat
+display "=== Repeat Loops ==="
+repeat 3 loops display "Simple repeat"
+repeat 2 loops: [
+    display "Block repeat: x = " plus x
+    the x is x plus 1
+]
+
+# While loops
+display "=== While Loops ==="
+the count is 1
+while count is less than 4 do: [
+    display "While count: " plus count
+    the count is count plus 1
+]
+
+# Lists
+display "=== Lists ==="
+the numbers is [10, 20, 30]
+the names is ["Alice", "Bob", "Charlie"]
+display "Numbers: " plus numbers
+display "Names: " plus names
+display "Count of names: " plus count of names
+display "First name: " plus names at 1
+display "Second name: " plus names at 2
+
+# List manipulation
+append "David" to names
+display "After append: " plus names
+remove "Bob" from names
+display "After remove: " plus names
+
+# For loops
+display "=== For Loops ==="
+for each name in names: [
+    display "Hello, " plus name
+]
+
+# Logical operations
+display "=== Logic Tests ==="
+the a is 5
+the b is 8
+if a is less than 10 and b is less than 10 then display "Both less than 10"
+if a is greater than 10 or b is greater than 5 then display "At least one condition true"
+
+# Sections
+display "=== Sections ==="
+section greet is [
+    display "Welcome to FriendlyLang!"
+    display "This is from a section"
+]
+greet
+
+# File I/O
+display "=== File I/O ==="
+the message is "This is a test file"
+write message to "test_output.txt"
+read from "test_output.txt" remember as loaded_message
+display "Loaded from file: " plus loaded_message
+
+# CSV Tests
+display "=== CSV Functionality ==="
+
+# First, create a simple CSV file to work with
+the csv_data is [["Name", "Age", "Department"], ["Alice", "25", "Engineering"], ["Bob", "30", "Marketing"], ["Charlie", "28", "Sales"]]
+write csv_data to csv "test_employees.csv"
+display "Created test CSV file"
+
+# Read the CSV back
+read csv "test_employees.csv" remember as employees
+display "CSV data loaded:"
+display employees
+
+# Test column access
+display "All names (column 1):"
+display get column 1 from employees
+display "All ages (column 2):"
+display get column 2 from employees
+display "All departments (column 3):"
+display get column 3 from employees
+
+# Test cell editing
+display "Before editing - Alice's info:"
+display employees at 2
+
+set employees row 2 column 2 to "26"
+set employees row 2 column 3 to "Senior Engineering"
+
+display "After editing - Alice's info:"
+display employees at 2
+
+# Edit more data
+set employees row 3 column 1 to "Robert"
+set employees row 4 column 2 to "29"
+
+display "All updated CSV data:"
+display employees
+
+# Save the modified data
+write employees to csv "modified_employees.csv"
+display "Saved modified data to modified_employees.csv"
+
+# Complex example: process the data
+display "=== Data Processing Example ==="
+the ages is get column 2 from employees
+display "All ages: " plus ages
+
+# Count employees (excluding header)
+the employee_count is count of employees minus 1
+display "Number of employees: " plus employee_count
+
+# Loop through employees
+display "Employee list:"
+the i is 2
+while i is less than count of employees plus 1 do: [
+    the employee_info is employees at i
+    display "Employee " plus i minus 1 plus ": " plus employee_info
+    the i is i plus 1
+]
+
+display "=== All Tests Complete! ==="
+display "FriendlyLang successfully executed all features:"
+display "✓ Variables and math"
+display "✓ Strings and concatenation"
+display "✓ Conditionals (if/else, blocks)"
+display "✓ Loops (repeat, while, for)"
+display "✓ Lists and indexing"
+display "✓ List manipulation"
+display "✓ Logical operations"
+display "✓ Sections/functions"
+display "✓ File I/O"
+display "✓ CSV reading and writing"
+display "✓ CSV column access"
+display "✓ CSV cell editing"
+display "✓ Data processing workflows"

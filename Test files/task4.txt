@@ -1,0 +1,2 @@
+ask "what is the temperature? " remember as temperature
+if temperature is greater than 29 display "hot" otherwise display "cool
