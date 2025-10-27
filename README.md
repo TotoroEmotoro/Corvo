@@ -198,7 +198,8 @@ It is readable, expressive, and approachable, helping learners think algorithmic
 - Introduce arithmetic precedence  
 - Support nested lists and structured data  
 - Optional type checking  
-- Web-based Corvo playground  
+- Web-based Corvo playground
+- Eventually develop Corvo into a more native language, away from Python.
 
 ---
 
