@@ -20,16 +20,134 @@
 from lark import Lark, Transformer
 import csv
 
-# -------------------------------------------------
-# 1. Grammar
-# -------------------------------------------------
-# Paste the FULL contents of your grammar.lark file
-# between the triple quotes below. Do not indent it.
-# Make sure the top rule name here matches the `start='...'`
-# used below in the Lark(...) call (default: 'start').
-#
+
 CORVO_GRAMMAR = r"""
-<<< PASTE YOUR grammar.lark HERE >>>
+start: statement*
+
+statement: assignment
+         | display
+         | input
+         | conditional
+         | repeat
+         | while
+         | for_loop
+		 | repeat
+         | write
+         | read
+         | csv_read
+         | csv_write
+         | csv_set
+         | section_def
+         | list_append
+         | list_remove
+         | section_call
+
+assignment: "the" WORD "is" expr
+
+display: "display" expr
+
+input: "ask" expr REMEMBER_AS WORD
+
+conditional: "if" condition "then" statement OTHERWISE statement  -> if_else
+           | "if" condition "then" statement                     -> if_only
+           | "if" condition "then" ":" "[" statement* "]" OTHERWISE ":" "[" statement* "]"  -> if_else_block
+           | "if" condition "then" ":" "[" statement* "]"         -> if_only_block
+
+condition: base_condition
+         | condition AND condition  -> and_
+         | condition OR condition   -> or_
+
+base_condition: expr comparator expr
+
+repeat: "repeat" expr LOOPS statement                              -> repeat_single
+      | "repeat" expr LOOPS ":" "[" statement* "]"                 -> repeat_block
+
+while: WHILE condition DO ":" "[" statement* "]"
+
+for_loop: "for" "each" WORD "in" WORD ":" "[" statement* "]"
+
+write: "write" expr "to" expr
+
+read: READ_FROM expr REMEMBER_AS WORD
+
+csv_read: READ_CSV expr REMEMBER_AS WORD
+
+csv_write: "write" WORD TO_CSV expr
+
+csv_set: "set" WORD ROW expr COLUMN expr "to" expr
+
+section_def: SECTION WORD "is" "[" statement* "]"
+
+list_append: "append" expr "to" WORD
+
+list_remove: "remove" expr "from" WORD
+
+section_call: WORD
+
+expr: list
+    | length
+    | count
+    | concat
+    | math_expr
+    | index_access
+    | column_access
+    | STRING
+    | NUMBER
+    | WORD
+
+list: "[" [expr ("," expr)*] "]"
+
+length: LENGTH_OF expr
+
+count: COUNT_OF WORD
+
+concat: expr PLUS expr
+
+math_expr: expr MINUS expr        -> subtract
+         | expr TIMES expr        -> multiply
+         | expr DIVIDED_BY expr   -> divide
+
+index_access: WORD AT expr
+
+column_access: GET_COLUMN expr FROM WORD
+
+comparator: IS_EQUAL_TO
+          | IS_GREATER_THAN
+          | IS_LESS_THAN
+
+%import common.WS
+COMMENT: /#[^\r\n]*/
+COUNT_OF.10: "count of"
+LOOPS.10: "loops"
+WHILE.10: "while"
+DO.10: "do"
+AT.10: "at"
+AND.10: "and"
+OR.10: "or"
+OTHERWISE.10: "otherwise"
+PLUS.10: "plus"
+MINUS.10: "minus"
+TIMES.10: "times"
+SECTION.10: "section"
+IS_EQUAL_TO.10: "is equal to"
+IS_GREATER_THAN.10: "is greater than"
+IS_LESS_THAN.10: "is less than"
+REMEMBER_AS.10: "remember as"
+READ_FROM.10: "read from"
+READ_CSV.10: "read csv"
+TO_CSV.10: "to csv"
+GET_COLUMN.10: "get column"
+FROM.10: "from"
+ROW.10: "row"
+COLUMN.10: "column"
+LENGTH_OF.10: "length of"
+DIVIDED_BY.10: "divided by"
+%import common.CNAME -> WORD
+%import common.ESCAPED_STRING -> STRING
+%import common.NUMBER
+%ignore WS
+%ignore COMMENT
+
 """
 
 
