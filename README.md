@@ -212,5 +212,8 @@ GitHub: [TotoroEmotoro](https://github.com/TotoroEmotoro)
 
 ## Licence
 
-Licensed under the **LGPL Licence**.  
-See the `LICENCE` file for full details.
+Licensed under the **Corvo Source-Available License (Version 1.0)**.  
+You may use Corvo to write and distribute your own programs, and study the source code for educational purposes.  
+You may **not** modify or redistribute Corvo itself without written permission.  
+See the `LICENSE` file for full details.
+
