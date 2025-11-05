@@ -14,7 +14,7 @@ from lark import Lark, Transformer
 import sys
 import csv
 
-class FriendlyLangInterpreter(Transformer):
+class CorvoInterpreter(Transformer):
     def __init__(self):
         self.vars = {}
         self.sections = {}
@@ -638,7 +638,7 @@ def run_program(filename):
     try:
         parser = Lark(grammar, start='start')
         tree = parser.parse(code)
-        interpreter = FriendlyLangInterpreter()
+        interpreter = CorvoInterpreter()
         result = interpreter.transform(tree)
         
     except Exception as e:
