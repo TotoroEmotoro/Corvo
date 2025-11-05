@@ -19,6 +19,7 @@
 
 from lark import Lark, Transformer
 import csv
+RUNTIME_ID = "Corvo Browser Runtime 2025-11-05"
 
 
 CORVO_GRAMMAR = r"""
